@@ -6,7 +6,7 @@
 
 using namespace std;
 
-// è·å–æ–‡ä»¶ä¸­çš„è¡Œæ•°
+// »ñÈ¡ÎÄ¼şÖĞµÄĞĞÊı
 int FrdSearcher::getLineCount() {
     ifstream ifs;
     ifs.open("friends.dat", ios::in);
@@ -19,19 +19,19 @@ int FrdSearcher::getLineCount() {
     return line;
 }
 
-// å°†æ–‡ä»¶ä¸­çš„æ¯ä¸€è¡Œè½¬åŒ–ä¸ºä¸€ä¸ªFriendå¯¹è±¡
+// ½«ÎÄ¼şÖĞµÄÃ¿Ò»ĞĞ×ª»¯ÎªÒ»¸öFriend¶ÔÏó
 void  FrdSearcher::file2array(Friend * friends, int linec) {
     ifstream ifs;
     ifs.open("friends.dat", ios::in);
-    // ç”¨äºæš‚å­˜æ¯ä¸€è¡Œçš„æ•°æ®, ä»¥ä¾¿ç”ŸæˆFriendå¯¹è±¡
+    // ÓÃÓÚÔİ´æÃ¿Ò»ĞĞµÄÊı¾İ, ÒÔ±ãÉú³ÉFriend¶ÔÏó
     char temp[50];
     linec = 0;
-    // ä¾æ¬¡è¯»å–æ–‡ä»¶ä¸­çš„æ¯ä¸€è¡Œ
+    // ÒÀ´Î¶ÁÈ¡ÎÄ¼şÖĞµÄÃ¿Ò»ĞĞ
     while (ifs.getline(temp, 50)) {
-        // å°†æ¯ä¸€è¡Œåˆ†å‰²ä¸ºé€‚å½“çš„å­—ç¬¦ä¸²
-        // å¹¶èµ‹å€¼ç»™æ•°ç»„ä¸­çš„Friendå¯¹è±¡
+        // ½«Ã¿Ò»ĞĞ·Ö¸îÎªÊÊµ±µÄ×Ö·û´®
+        // ²¢¸³Öµ¸øÊı×éÖĞµÄFriend¶ÔÏó
         char * token = strtok(temp, " ");
-        // åˆ‡è®°!!c/c++ä¸­çš„cé£æ ¼å­—ç¬¦ä¸²ä¸èƒ½ç›´æ¥ä½¿ç”¨'='èµ‹å€¼
+        // ÇĞ¼Ç!!c/c++ÖĞµÄc·ç¸ñ×Ö·û´®²»ÄÜÖ±½ÓÊ¹ÓÃ'='¸³Öµ
         strcpy(friends[linec].name, token);
         token = strtok(NULL, " ");
         friends[linec].age = atoi(token);
@@ -40,19 +40,19 @@ void  FrdSearcher::file2array(Friend * friends, int linec) {
         // cout << "DEBUG: " << friends[index].name << " " << friends[index].age << " " << friends[index].phone << endl;
         linec++;
     }
-    // cout << "DEBUG: å‘friendsæ•°ç»„ä¸­æ·»åŠ äº†:" << index << "ä¸ªå…ƒç´ " << endl;
+    // cout << "DEBUG: ÏòfriendsÊı×éÖĞÌí¼ÓÁË:" << index << "¸öÔªËØ" << endl;
 }
 
-// è·å–æœç´¢å…³é”®å­—
+// »ñÈ¡ËÑË÷¹Ø¼ü×Ö
 void FrdSearcher::setKey(char * keyword) {
-    cout << "è¯·è¾“å…¥è¦æŸ¥æ‰¾çš„æœ‹å‹å§“åå…³é”®å­—: ";
+    cout << "ÇëÊäÈëÒª²éÕÒµÄÅóÓÑĞÕÃû¹Ø¼ü×Ö: ";
     cin >> keyword;
 }
 
-// è¾“å‡ºæœ‹å‹ä¿¡æ¯
+// Êä³öÅóÓÑĞÅÏ¢
 void FrdSearcher::printFrds(Friend * friends, int linec) {
     cout << "##########################" << endl;
-    cout << "å§“å" << "\t" << "å¹´é¾„" << "\t" << "ç”µè¯" << endl;
+    cout << "ĞÕÃû" << "\t" << "ÄêÁä" << "\t" << "µç»°" << endl;
     for (int i = 0; i < linec; ++i) {
         cout << friends[i].name << "\t";
         cout << friends[i].age << "\t";
@@ -60,17 +60,17 @@ void FrdSearcher::printFrds(Friend * friends, int linec) {
     }
 }
 
-// å¦‚æœflagä¸º1åˆ™æ‰“å°æ‰€æœ‰
-// å¦åˆ™å¦‚æœflagä¸º0é€šè¿‡å…³é”®å­—æœç´¢
+// Èç¹ûflagÎª1Ôò´òÓ¡ËùÓĞ
+// ·ñÔòÈç¹ûflagÎª0Í¨¹ı¹Ø¼ü×ÖËÑË÷
 int FrdSearcher::searchFrd(int flag) {
     int linec = getLineCount();
     // cout << "DEBUG: linec is: " << linec << endl;
 
-    // ç”¨äºå­˜æ”¾ä»£è¡¨æ¯è¡Œæ•°æ®çš„æ•°ç»„
+    // ÓÃÓÚ´æ·Å´ú±íÃ¿ĞĞÊı¾İµÄÊı×é
     Friend * friends = new Friend[linec];
     file2array(friends, linec);
 
-    // æ‰“å°æ‰€æœ‰æœ‹å‹
+    // ´òÓ¡ËùÓĞÅóÓÑ
     if (flag == 1) {
         printFrds(friends, linec);
     }
@@ -87,11 +87,11 @@ int FrdSearcher::searchFrd(int flag) {
             }
         }
         if (indexOfMatched != 0) {
-            cout << "æ‰¾åˆ°å¦‚ä¸‹æœ‹å‹:" << endl;
+            cout << "ÕÒµ½ÈçÏÂÅóÓÑ:" << endl;
             printFrds(frdsMatched, indexOfMatched);
         }
         else {
-            cout << "æ²¡æœ‰æ‰¾åˆ°ç¬¦åˆæ¡ä»¶çš„æœ‹å‹.." << endl;
+            cout << "Ã»ÓĞÕÒµ½·ûºÏÌõ¼şµÄÅóÓÑ.." << endl;
         }
     }
     return 0;

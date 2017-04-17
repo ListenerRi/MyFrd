@@ -13,19 +13,19 @@ int main(void)
 	    switch (choice) {
 	        case '1':
 	            // add
-                cout << "\n1: å¢žåŠ ä¸€ä¸ªæœ‹å‹" << endl;
+                cout << "\n1: Ôö¼ÓÒ»¸öÅóÓÑ" << endl;
 	            FrdAdder adder;
 	            adder.addFrd();
 	            break;
 	        case '2':
 	            // search
-                cout << "\n2: æŸ¥æ‰¾ä¸€ä¸ªæœ‹å‹" << endl;
+                cout << "\n2: ²éÕÒÒ»¸öÅóÓÑ" << endl;
                 FrdSearcher searcher;
                 searcher.searchFrd(0);
 	            break;
 	        case '3':
 	            // print all
-                cout << "\n3: æŸ¥çœ‹æ‰€æœ‰æœ‹å‹" << endl;
+                cout << "\n3: ²é¿´ËùÓÐÅóÓÑ" << endl;
                 FrdSearcher printer;
                 printer.searchFrd(1);
 	            break;
@@ -33,10 +33,10 @@ int main(void)
 	        	welcome();
 	        	break;
 	        case 'q':
-	        	cout << "é€€å‡ºç¨‹åº..." << endl;
+	        	cout << "ÍË³ö³ÌÐò..." << endl;
 	        	return 0;
 	        default:
-	        	cout << "åªæœ‰ '1/2/3/?/q' é€‰é¡¹å¯ç”¨, è¯·é‡æ–°è¾“å…¥é€‰é¡¹." << endl;
+	        	cout << "Ö»ÓÐ '1/2/3/?/q' Ñ¡Ïî¿ÉÓÃ, ÇëÖØÐÂÊäÈëÑ¡Ïî." << endl;
 	            break;
 	    }
 	}
@@ -45,20 +45,20 @@ int main(void)
 
 void welcome() {
     cout << "\n\n==============================" << endl;
-    cout << "æ¬¢è¿Ž :)" << endl;
+    cout << "»¶Ó­ :)" << endl;
     cout << "\n------------------------------" << endl;
-    cout << "1: å¢žåŠ ä¸€ä¸ªæœ‹å‹" << endl;
-    cout << "2: æŸ¥æ‰¾ä¸€ä¸ªæœ‹å‹" << endl;
-    cout << "3: æŸ¥çœ‹æ‰€æœ‰æœ‹å‹" << endl;
+    cout << "1: Ôö¼ÓÒ»¸öÅóÓÑ" << endl;
+    cout << "2: ²éÕÒÒ»¸öÅóÓÑ" << endl;
+    cout << "3: ²é¿´ËùÓÐÅóÓÑ" << endl;
     cout << "------------------------------\n" << endl;
-    cout << "è¾“å…¥ '1/2/3' æ¥é€‰æ‹©ä¸Šé¢çš„é€‰é¡¹." << endl;
-    cout << "è¾“å…¥ '?' æŸ¥çœ‹è¿™ä¸ªå¸®åŠ©ä¿¡æ¯." << endl;
-    cout << "è¾“å…¥ 'q' é€€å‡ºæœ¬ç¨‹åº'." << endl;
+    cout << "ÊäÈë '1/2/3' À´Ñ¡ÔñÉÏÃæµÄÑ¡Ïî." << endl;
+    cout << "ÊäÈë '?' ²é¿´Õâ¸ö°ïÖúÐÅÏ¢." << endl;
+    cout << "ÊäÈë 'q' ÍË³ö±¾³ÌÐò'." << endl;
     cout << "==============================" << endl;
 }
 
 char getChoice() {
-    cout << "\nä½ çš„é€‰æ‹©æ˜¯: ";
+    cout << "\nÄãµÄÑ¡ÔñÊÇ: ";
     char choice = '?';
     cin >> choice;
     return choice;

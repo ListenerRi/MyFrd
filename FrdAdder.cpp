@@ -7,11 +7,11 @@ using namespace std;
 Friend FrdAdder::createFrd() {
     Friend frd;
 
-	cout << "濮撳悕: ";
+	cout << "姓名: ";
 	cin >> frd.name;
-	cout << "骞撮緞: ";
+	cout << "年龄: ";
 	cin >> frd.age;
-	cout << "鐢佃瘽: ";
+	cout << "电话: ";
 	cin >> frd.phone;
     return frd;
 }
@@ -22,7 +22,7 @@ int FrdAdder::addFrd() {
     ofstream of;
     of.open("friends.dat", ios::out | ios::app);
 	of << frd.name << " " << frd.age << " " << frd.phone << endl;
-    cout << "娣诲姞鎴愬姛!" << endl;
+    cout << "添加成功!" << endl;
     of.close();
     return 0;
 }
