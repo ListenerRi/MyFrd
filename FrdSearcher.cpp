@@ -93,6 +93,8 @@ int FrdSearcher::searchFrd(int flag) {
         else {
             cout << "没有找到符合条件的朋友.." << endl;
         }
+        delete [] frdsMatched;
     }
+    delete [] friends;
     return 0;
 }
